@@ -1,52 +1,61 @@
 /** @format */
 
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../auth/AuthContext';
+import './navbar.css';
 
 export const Navbar = () => {
+	const {
+		user: { name },
+	} = useContext(AuthContext);
+
 	return (
 		<nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
-			<Link className='navbar-brand' to='/'>
-				HOME
-			</Link>
+			<div className='navbar-brand'>HeroesApp</div>
 
 			<div className='navbar-collapse'>
 				<div className='navbar-nav w-100'>
-					<NavLink
-						activeClassName='active'
-						className='nav-item nav-link'
-						exact
-						to='/marvel'
-					>
-						Marvel
-					</NavLink>
+					<div>
+						<NavLink
+							activeClassName='active'
+							className='nav-item nav-link'
+							exact
+							to='/marvel'
+						>
+							Marvel
+						</NavLink>
 
-					<NavLink
-						activeClassName='active'
-						className='nav-item nav-link'
-						exact
-						to='/dc'
-					>
-						DC
-					</NavLink>
+						<NavLink
+							activeClassName='active'
+							className='nav-item nav-link'
+							exact
+							to='/dc'
+						>
+							DC
+						</NavLink>
 
-					<NavLink
-						activeClassName='active'
-						className='nav-item nav-link'
-						exact
-						to='/search'
-					>
-						Search
-					</NavLink>
+						<NavLink
+							activeClassName='active'
+							className='nav-item nav-link'
+							exact
+							to='/search'
+						>
+							Search
+						</NavLink>
+					</div>
+					<div>
+						<span className='nav-item nav-link text-info'>{name}</span>
 
-					<NavLink
-						activeClassName='active'
-						className='nav-item nav-link'
-						exact
-						to='/login'
-					>
-						Logout
-					</NavLink>
+						<NavLink
+							activeClassName='active'
+							className='nav-item nav-link'
+							exact
+							to='/login'
+						>
+							Logout
+						</NavLink>
+					</div>
 				</div>
 			</div>
 		</nav>

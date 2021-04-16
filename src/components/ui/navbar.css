@@ -1,0 +1,25 @@
+/** @format */
+
+.w-100 {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.w-100 div {
+	display: flex;
+}
+
+@media (max-width: 991px) {
+	.w-100 {
+		display: block;
+	}
+
+	.w-100 div {
+		display: block;
+	}
+
+	.navbar-brand {
+		display: none;
+	}
+}
