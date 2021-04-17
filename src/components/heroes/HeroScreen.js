@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { getHeroById } from '../../selectors/getHeroById';
-import { heroImages } from '../../helpers/heroImages';
+import { loadImage } from '../../helpers/heroImages';
 
 export const HeroScreen = ({ history }) => {
 	// Hook de reactRouter para conseguir los params
@@ -24,6 +24,7 @@ export const HeroScreen = ({ history }) => {
 	};
 
 	const {
+		id,
 		superhero,
 		publisher,
 		alter_ego,
@@ -36,7 +37,7 @@ export const HeroScreen = ({ history }) => {
 			<div className='col-4'>
 				<img
 					// src={heroImages(`./${id}.jpg`)}
-					src={heroImages(`./${heroeId}.jpg`).default}
+					src={loadImage(`${id}.jpg`)}
 					className='card-img'
 					alt={superhero}
 				/>
